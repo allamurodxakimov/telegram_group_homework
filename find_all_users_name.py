@@ -10,7 +10,7 @@ def find_all_users_name(data: dict)->list:
         list: List containing all the users name.
     """
     ls=[]
-    
+     
     for i in data["messages"]:
         if "actor" in i and i['actor'] not in ls and "Python" not in i['actor'] and 'Codeschooluz' not in i['actor']:
             ls.append(i['actor'])
