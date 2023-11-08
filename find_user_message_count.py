@@ -11,11 +11,11 @@ def find_user_message_count(data: dict, users_id: str)->dict:
     Returns:
         dict: Number of messages of the users
     """
-    c={}
+    c={} 
     for i in data["messages"]:
         if "from_id" in i and "channel" not in i['from_id']:
             c[i['from_id']]=c.get(i['from_id'],0)+1
-    return c
+    return c 
 data=read_data("data/result.json")
 ids=ids(data)
 print(find_user_message_count(data,ids))
