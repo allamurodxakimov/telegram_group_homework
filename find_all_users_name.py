@@ -16,5 +16,5 @@ def find_all_users_name(data: dict)->list:
             ls.append(i['actor'])
         elif "from" in i and i['from'] not in ls and "Python" not in i['from'] :
             ls.append(i['from'])
-    return (ls)
+    return (ls) 
 print(find_all_users_name(read_data("data/result.json")))
