@@ -11,7 +11,11 @@ def find_number_of_messages(data: dict)->int:
     
     """
     c=0
+    ls=[]
     for i in data["messages"]:
-        c+=1
+        if i['text']!="" :
+            c+=1
+            ls.append(i['text'])
+    print(ls)
     return c
 print(find_number_of_messages(read_data("data/result.json")))

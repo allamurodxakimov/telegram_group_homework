@@ -8,13 +8,11 @@ def find_all_users_id(data: dict)->list:
     Returns:
         list: List containing all the users id
     """
-    c={}
-    b={}
     ls=[]
     for i in data['messages']:
-        c[i.get("actor")]=i['id']
-        ls.append(c)
-        b[i.get('from')]=i['id']
-        ls.append(b)
-    return ls
-print(find_all_users_id(read_data("data/result.json")))
+        if "actor_id" in i and i["actor_id"] not in ls and "channel" not in i["actor_id"]:
+            ls.append(i["actor_id"])
+        elif "from_id" in i and i['from_id'] not in ls and "channel" not in i['from_id']:
+            ls.append(i['from_id'])
+    return (ls)
+# print(find_all_users_id(read_data("data/result.json")))

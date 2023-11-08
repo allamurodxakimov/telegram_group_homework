@@ -10,14 +10,11 @@ def find_all_users_name(data: dict)->list:
         list: List containing all the users name.
     """
     ls=[]
-    lst=[]
-    l=[]
+    
     for i in data["messages"]:
-        ls.append(i.get('actor'))
-        lst.append(i.get("from"))
-    ls.extend(lst)
-    for i in ls:
-        if i!=None:
-            l.append(i)
-    return l
+        if "actor" in i and i['actor'] not in ls and "Python" not in i['actor'] and 'Codeschooluz' not in i['actor']:
+            ls.append(i['actor'])
+        elif "from" in i and i['from'] not in ls and "Python" not in i['from'] :
+            ls.append(i['from'])
+    return (ls)
 print(find_all_users_name(read_data("data/result.json")))
