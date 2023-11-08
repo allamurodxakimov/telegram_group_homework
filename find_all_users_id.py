@@ -8,7 +8,7 @@ def find_all_users_id(data: dict)->list:
     Returns:
         list: List containing all the users id
     """
-    ls=[]
+    ls=[] 
     for i in data['messages']:
         if "actor_id" in i and i["actor_id"] not in ls and "channel" not in i["actor_id"]:
             ls.append(i["actor_id"])
